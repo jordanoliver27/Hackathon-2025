@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import "./App.css";
+ import { Link } from "react-router-dom";
 
 function App() {
   const [thought, setThought] = useState("");
@@ -55,6 +56,8 @@ function App() {
 
 
   return (
+
+   <>
     <div className="container">
       {/* Header */}
       <h1 className="title">RephraseIt</h1>
@@ -94,6 +97,7 @@ function App() {
       
     
     </div>
+    </>
   );
 }
 

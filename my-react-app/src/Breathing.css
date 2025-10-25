@@ -1,0 +1,46 @@
+.breathing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #a8e6cf, #dcedc1);
+  font-family: sans-serif;
+  text-align: center;
+  padding: 2rem;
+   font-family: var(--font-serif);
+  color: var(--heading-color);
+  letter-spacing: 0.6px;
+  margin-bottom: 0.25rem;
+}
+
+.breathing-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.breathing-page h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.circle-container {
+  width: 200px;
+  height: 200px;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  background-color: #ffb86b;
+  border-radius: 50%;
+  transition: transform 1s ease-in-out;
+}
+
+.counter{
+    margin-top: 2rem;
+}
