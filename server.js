@@ -46,7 +46,7 @@ app.use(bodyParser.json());
 app.use(express.static(BUILD_PATH));
 
 // Catch-all route for React
-app.get('/*', (req, res) => {
+app.get('/*/', (req, res) => {
   res.sendFile(path.join(BUILD_PATH, 'index.html'));
 });
 
