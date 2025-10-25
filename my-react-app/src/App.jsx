@@ -93,21 +93,21 @@ function App() {
           )}
         </div>
       )}
+{!loading && (
+  <>
+    <textarea
+      className="input-box"
+      placeholder="Type your thought here..."
+      value={thought}
+      onChange={(e) => setThought(e.target.value)}
+    ></textarea>
 
-      {/* Input */}
-      <textarea
-        className="input-box"
-        placeholder="Type your thought here..."
-        value={thought}
-        onChange={(e) => {
-          setThought(e.target.value);   
-        }}
-      ></textarea>
+    <button className="rephrase-btn" onClick={handleRephrase}>
+      Rephrase
+    </button>
+  </>
+)}
 
-      {/* Button */}
-      <button className="rephrase-btn" onClick={handleRephrase}>
-        Rephrase
-      </button>
       
     
     </div>

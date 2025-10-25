@@ -199,7 +199,7 @@ body, .container {
 .breathing-text {
   color: #6f868b;
   font-family: "Quicksand", sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   opacity: 0.9;
   margin-bottom: 10px;
   animation: fadeInOut 2s ease-in-out infinite;
