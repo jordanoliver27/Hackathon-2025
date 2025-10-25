@@ -154,8 +154,6 @@ body, .container {
   z-index: 2;
   background: #ffffff;
   border-radius: 9999px; /* pill shape */
-  /* padding: 1.5rem 3rem; */
-  /* padding: 1.4rem 2.4rem; */
   padding: calc(1.5rem + 4px) calc(3rem + 4px);
   min-width: 250px;
   max-width: 600px;
@@ -163,19 +161,14 @@ body, .container {
   text-align: center;
   font-size: 1.15rem;
   color: #3b6d3b;
-  /* color: #2f4f3f; */
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 20px;
-
 
   font-family: "Merriweather", "Quicksand", Georgia, serif;
   font-weight: 400;
   line-height: 1.75;
   letter-spacing: 0.3px;
-
-  
-  
 }
 
 /* Floating animation */
