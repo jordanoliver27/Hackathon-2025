@@ -71,8 +71,14 @@ function App() {
       {showCloud && (
         <div className="cloud-wrapper">
           {loading ? (
-            // Show breathing circle while loading
-            <div className="breathing-person" aria-label="Loading..." />
+            // Enhanced loading state with message
+            <div className="loading-container">
+              <div className="breathing-person" aria-label="Loading..." />
+              <div className="breathing-text">
+                <span>Take a deep breath</span>
+                <span className="dots">...</span>
+              </div>
+            </div>
           ) : (
             // Show cloud response when done loading
             <div
