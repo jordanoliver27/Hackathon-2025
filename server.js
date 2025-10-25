@@ -20,7 +20,7 @@ app.use(bodyParser.json()); // parse incoming JSON body from frontend
 // app.get('/*', (req, res) => {
 //   res.sendFile(path.join('./my-react-app/dist', 'index.html'));
 // });
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(BUILD_PATH, 'index.html'));
 });
 
