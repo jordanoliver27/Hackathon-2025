@@ -78,10 +78,11 @@
   background: #ffffff; /* same as pill */
   border-radius: 80%;
   width: 60%;  /* smaller than full pill width */
-  height: 150px;
-  top: -40px;
+  height: 130px;
+  top: -60px;
   left: 15%;   /* leave margin so puff ends before pill ends */
   margin-top: 10px;
+  margin-bottom:10px;
 }
 
 /* Right smaller puff */
