@@ -35,10 +35,13 @@ function App() {
       const color = (match && (match[1] || match[2])) ? (match[1] || match[2]).toUpperCase() : null;
       if (match) {
         setColorTag(color);
-        setOutput(match[3] || "");
+        // setOutput(match[3] || "");
+        setOutput((match[3] || "").trim().replace(/^:\s*/, ""));
       } else {
         setColorTag(null);
-        setOutput(data.rephrased || "No rephrase returned.");
+        // setOutput(data.rephrased || "No rephrase returned.");
+          setOutput((data.rephrased || "No rephrase returned.").trim().replace(/^:\s*/, ""));
+
       }
       // stop breathing and show response
       setLoading(false);
