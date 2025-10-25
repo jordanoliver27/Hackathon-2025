@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import "./App.css";
- import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function App() {
   const [thought, setThought] = useState("");
@@ -40,7 +40,7 @@ function App() {
       } else {
         setColorTag(null);
         // setOutput(data.rephrased || "No rephrase returned.");
-          setOutput((data.rephrased || "No rephrase returned.").trim().replace(/^:\s*/, ""));
+        setOutput((data.rephrased || "No rephrase returned.").trim().replace(/^:\s*/, ""));
 
       }
       // stop breathing and show response
@@ -67,57 +67,63 @@ function App() {
 
   return (
 
-   <>
-    {/* <div className="container"> */}
-    <div className={`container ${output && !loading ? 'after-load' : ''}`}>
-      {/* Header */}
-      <h1 className="title">RephraseIt</h1>
-      <h2 className="subtitle">Turn harsh thoughts into gentle perspectives</h2>
+    <>
+      {/* <div className="container"> */}
+      <div className={`container ${output && !loading ? 'after-load' : ''}`}>
+        {/* Header */}
+        <h1 className="title">RephraseIt</h1>
+        <h2 className="subtitle">Turn harsh thoughts into gentle perspectives</h2>
 
-{/* Cloud Output */}
-      {showCloud && (
-        <div className="cloud-wrapper" key={output + loading}>
-          {loading ? (
-            // Enhanced loading state with message
-            <div className="loading-container">
-              <div className="breathing-person" aria-label="Loading..." />
-              <div className="breathing-text">
-                <span>Take a deep breath</span>
-                <span className="dots">...</span>
+        {/* Cloud Output */}
+        {showCloud && (
+          <div className="cloud-wrapper" key={output + loading}>
+            {loading ? (
+              // Enhanced loading state with message
+              <div className="loading-container">
+                <div className="breathing-person" aria-label="Loading..." />
+                <div className="breathing-text">
+                  <span>Take a deep breath</span>
+                  <span className="dots">...</span>
+                </div>
               </div>
-            </div>
-          ) : (
-            // Show cloud response when done loading
-            <div
-              className="cloud-text"
-              style={{
-                backgroundColor: bgColors[colorTag] || bgColors.null,
-                color: '#0b0b0b',
+            ) : (
+              // Show cloud response when done loading
+              <div
+                className="cloud-text"
+                style={{
+                  backgroundColor: bgColors[colorTag] || bgColors.null,
+                  color: '#0b0b0b',
+                }}
+              >
+                {output}
+              </div>
+            )}
+          </div>
+        )}
+        {!loading && (
+          <>
+            <textarea
+              className="input-box"
+              placeholder="Type your thought here..."
+              value={thought}
+              onChange={(e) => setThought(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault(); // prevent newline
+                  handleRephrase();   // trigger your submit function
+                }
               }}
-            >
-              {output}
-            </div>
-          )}
-        </div>
-      )}
-{!loading && (
-  <>
-    <textarea
-      className="input-box"
-      placeholder="Type your thought here..."
-      value={thought}
-      onChange={(e) => setThought(e.target.value)}
-    ></textarea>
+            ></textarea>
 
-    <button className="rephrase-btn" onClick={handleRephrase}>
-      Rephrase
-    </button>
-  </>
-)}
+            <button className="rephrase-btn" onClick={handleRephrase}>
+              Rephrase
+            </button>
+          </>
+        )}
 
-      
-    
-    </div>
+
+
+      </div>
     </>
   );
 }
