@@ -152,6 +152,12 @@ body, .container {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 20px;
+
+  /* CHANGED: relaxing response font */
+  font-family: "Merriweather", "Quicksand", Georgia, serif;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.3px;
 }
 
 /* Floating animation */
