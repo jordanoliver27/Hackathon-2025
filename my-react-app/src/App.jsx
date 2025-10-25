@@ -36,6 +36,7 @@ function App() {
         setOutput(data.rephrased || "No rephrase returned.");
       }
       setShowCloud(true);
+      setThought("");
 
     } catch (error) {
       console.error('Error calling server:', error);
@@ -65,9 +66,7 @@ function App() {
         placeholder="Type your negative thought here..."
         value={thought}
         onChange={(e) => {
-          setThought(e.target.value);
-          setColorTag(null);     
-          setShowCloud(false);   
+          setThought(e.target.value);   
         }}
       ></textarea>
 
