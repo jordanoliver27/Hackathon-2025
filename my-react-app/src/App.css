@@ -280,3 +280,47 @@ body, .container {
     transform: translateY(0);
   }
 }
+
+/* 
+.sound-btn {
+  background-color: #a8e6cf;
+  color: #0b0b0b;
+  padding: 0.6rem 1.5rem;
+  border-radius: 2rem;
+  border: none;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.sound-btn:hover {
+  transform: scale(1.05);
+  background-color: #91d9b5;
+} */
+
+.sound-btn {
+  background-color: rgba(255, 255, 255, 0.3); 
+  backdrop-filter: blur(8px);                  
+  border: none;
+  border-radius: 2rem;
+  padding: 0.6rem 1.5rem;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  /* color: #3b6d3b;                       */
+  /* background-color: #f2976358;         */
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: fixed;     
+  top: 5rem;             
+  right: 1rem;          
+}
+.sound-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  /* background-color: rgba(255, 255, 255, 0.45); */
+  background-color: #f2976358;        
+}

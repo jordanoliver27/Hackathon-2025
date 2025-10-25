@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import "./App.css";
@@ -10,6 +10,24 @@ function App() {
   const [showCloud, setShowCloud] = useState(false);
   const [colorTag, setColorTag] = useState(null);
   const [loading, setLoading] = useState(false); // ADDED
+  const [playing, setPlaying] = useState(false);
+  const audioRef = useRef(null);
+
+ useEffect(() => {
+    audioRef.current = new Audio("/Sounds/ambient.mp3");
+    audioRef.current.loop = true;
+  }, []);
+
+  const toggleSound = () => {
+    if (!audioRef.current) return;
+
+    if (playing) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play().catch(err => console.log("Autoplay prevented:", err));
+    }
+    setPlaying(!playing);
+  };
 
   const handleRephrase = async () => {
     if (!thought) return;
@@ -73,6 +91,7 @@ function App() {
         {/* Header */}
         <h1 className="title">RephraseIt</h1>
         <h2 className="subtitle">Turn harsh thoughts into gentle perspectives</h2>
+      
 
         {/* Cloud Output */}
         {showCloud && (
@@ -124,6 +143,10 @@ function App() {
 
 
       </div>
+        <button className="sound-btn" onClick={toggleSound}>
+          {/* {playing ? "Stop Ambient Sound" : "Play Ambient Sound"} */}
+           {playing ? "🔊 Stop Sound" : "🔈 Play Ambient Sound"}
+        </button>
     </>
   );
 }
