@@ -45,7 +45,7 @@ export default function Grounding() {
     return (
       <div className="grounding-container">
         <h1>Grounding Exercise</h1>
-        <p>All done — great job!</p>
+        <h2>All done — great job!</h2>
         <button style={{marginTop: "1rem"}} onClick={handleRestart}>Do it again</button>
 
         <div className="summary">

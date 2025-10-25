@@ -8,36 +8,53 @@
   background: linear-gradient(to bottom, #a8e6cf, #dcedc1);
   text-align: center;
   padding-top: 10rem;
-   font-family: var(--font-serif);
+  font-family: var(--font-serif);
   color: var(--heading-color);
   letter-spacing: 0.6px;
-    overflow: hidden;
+  overflow: hidden;
 }
 
-.inputs-list {
+/* Scoped selectors */
+.grounding-container .inputs-list {
   list-style: none;
   padding: 0;
   margin: 1rem 0;
 }
 
-.inputs-list li {
+.grounding-container .inputs-list li {
   background: #fff9c4;
   padding: 0.5rem 1rem;
   margin: 0.3rem 0;
   border-radius: 1rem;
   width: 250px;
   text-align: left;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1.05rem;
 }
 
-input[type="text"] {
+.grounding-container h1 {
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.grounding-container h2 {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.grounding-container input[type="text"] {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1.05rem;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   border: 2px solid #ffb86b;
-  width: 250px;
+  width: 300px;
   margin-right: 0.5rem;
 }
 
-button {
+.grounding-container button {
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   border: none;
@@ -47,46 +64,60 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.grounding-container button:hover {
   background: #ff9f43;
 }
 
-.summary {
+.grounding-container .summary {
   margin-top: 1rem;
   text-align: left;
 }
 
-.summary-step {
+.grounding-container .summary-step {
   margin-bottom: 1rem;
 }
 
-.summary-step h3 {
+.grounding-container .summary-step h3 {
   margin-bottom: 0.3rem;
 }
 
-.summary-step ul {
+.grounding-container .summary-step ul {
   list-style: disc;
   padding-left: 1.5rem;
 }
 
-.summary-step ul li {
+.grounding-container .summary-step ul li {
   background: #fff9c4;
   margin: 0.2rem 0;
   padding: 0.3rem 0.6rem;
   border-radius: 0.6rem;
 }
 
-.summary-items {
+.grounding-container .summary-items {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.summary-item {
+.grounding-container .summary-item {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1.05rem;
   background-color: #fff9c4; /* soft bubble color */
   padding: 0.4rem 0.8rem;
-  border-radius: 1.5rem;     /* pill shape */
+  border-radius: 1.5rem; /* pill shape */
   margin: 0.2rem 0;
-  font-size: 0.95rem;
   display: inline-block;
+}
+
+.grounding-container p {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1.05rem;
+}
+
+.grounding-container button {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1.05rem;
 }

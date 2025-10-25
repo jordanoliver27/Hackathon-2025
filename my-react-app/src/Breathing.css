@@ -14,17 +14,13 @@
   overflow: hidden;
 }
 
-.breathing-page h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
 .breathing-page h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
 }
 
-.circle-container {
+.breathing-page .circle-container {
   width: 200px;
   height: 200px;
   margin: 2rem 0;
@@ -33,14 +29,15 @@
   justify-content: center;
 }
 
-.circle {
+.breathing-page .circle {
   width: 150px;
   height: 150px;
-  background-color: #ffb86b;
+  background: radial-gradient(circle at center, #fcd5b5, #f29763); /* matches your warm theme */
+  box-shadow: 0 0 30px rgba(242, 151, 99, 0.3); 
   border-radius: 50%;
   transition: transform 1s ease-in-out;
 }
 
-.counter{
+.breathing-page .counter{
     margin-top: 2rem;
 }
