@@ -69,7 +69,7 @@ function App() {
 
 {/* Cloud Output */}
       {showCloud && (
-        <div className="cloud-wrapper">
+        <div className="cloud-wrapper" key={output + loading}>
           {loading ? (
             // Enhanced loading state with message
             <div className="loading-container">

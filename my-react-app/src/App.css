@@ -224,3 +224,42 @@ body, .container {
 .hidden {
   display: none;
 }
+
+
+/* Fade and float in for the cloud */
+.cloud-text {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInCloud 0.8s forwards ease-in-out;
+}
+
+@keyframes fadeInCloud {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Input + button fade in */
+.input-box,
+.rephrase-btn {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInInput 0.8s forwards ease-in-out;
+  animation-delay: 0.2s; /* slight delay for natural effect */
+}
+
+@keyframes fadeInInput {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
