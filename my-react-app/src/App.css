@@ -1,11 +1,15 @@
 /* Container */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* ensures padding doesn't add to width/height */
+}
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 2rem;
   background: linear-gradient(to bottom, #fff2cc, #fcd5b5, #ffe8b3);
   font-family: 'Arial', sans-serif;
   position: relative;
