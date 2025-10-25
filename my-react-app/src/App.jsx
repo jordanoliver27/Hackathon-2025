@@ -8,13 +8,30 @@ function App() {
   const [output, setOutput] = useState("");
   const [showCloud, setShowCloud] = useState(false);
 
-  const handleRephrase = () => {
-    if (!thought) return;
-    // For demo
-    const gentle = `This is a gentler way to say: "${thought}"`;
-    setOutput(gentle);
+  const handleRephrase = async () => {
+  if (!thought) return;
+
+  try {
+    const response = await fetch('http://localhost:3000/api/rephrase', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: thought }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Server returned an error');
+    }
+
+    const data = await response.json();
+    setOutput(data.rephrased);
     setShowCloud(true);
-  };
+
+  } catch (error) {
+    console.error('Error calling server:', error);
+    setOutput('Something went wrong. Please try again.');
+    setShowCloud(true);
+  }
+};
 
   return (
     <div className="container">
