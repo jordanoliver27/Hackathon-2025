@@ -58,7 +58,7 @@ function App() {
   };
 
   const bgColors = {
-    RED: '#ff6b6b',
+    RED: '#f1a9a9ff',
     ORANGE: '#ffb86b',
     GREEN: '#a8e6cf',
     null: '#f0f0f0'
