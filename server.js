@@ -1,29 +1,54 @@
+// import 'dotenv/config';
+// import express from 'express';
+// import bodyParser from 'body-parser';
+// import cors from 'cors';
+// import fetch from 'node-fetch';
+// import path from 'path';
+
+// const app = express();
+// const PORT = process.env.PORT || 3000;
+// const API_KEY = process.env.GEMINI_API_KEY;
+// const GEMINI_MODEL = "gemini-2.5-flash";
+
+// const BUILD_PATH = path.join(process.cwd(), 'my-react-app', 'dist'); 
+// app.use(express.static(BUILD_PATH));
+// // app.use(express.static(path.join('./my-react-app/dist')));
+// app.use(cors()); // allows frontend to call this server
+// app.use(bodyParser.json()); // parse incoming JSON body from frontend
+
+
+// // app.get('/*', (req, res) => {
+// //   res.sendFile(path.join('./my-react-app/dist', 'index.html'));
+// // });
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(BUILD_PATH, 'index.html'));
+// });
 import 'dotenv/config';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import fetch from 'node-fetch';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = "gemini-2.5-flash";
 
-const BUILD_PATH = path.join(process.cwd(), 'my-react-app', 'dist'); 
+const BUILD_PATH = path.join(__dirname, 'my-react-app', 'dist');
+
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
 app.use(express.static(BUILD_PATH));
-// app.use(express.static(path.join('./my-react-app/dist')));
-app.use(cors()); // allows frontend to call this server
-app.use(bodyParser.json()); // parse incoming JSON body from frontend
 
-
-// app.get('/*', (req, res) => {
-//   res.sendFile(path.join('./my-react-app/dist', 'index.html'));
-// });
-app.get('*', (req, res) => {
+// Catch-all route for React
+app.get('/*', (req, res) => {
   res.sendFile(path.join(BUILD_PATH, 'index.html'));
 });
-
 
 app.post('/api/rephrase', async (req, res) => {
     const userText = req.body.text;
