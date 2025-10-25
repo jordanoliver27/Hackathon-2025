@@ -52,6 +52,7 @@
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-bottom: 20px;
 }
 
 .rephrase-btn:hover {
@@ -59,52 +60,55 @@
   transform: scale(1.05);
 }
 
-/* Cloud Output */
-.cloud-output {
-  margin-top: 2rem;
-  padding: 1.5rem 2rem;
-  background: #ffffffcc; /* semi-transparent */
-  color: #3b6d3b;
-  border-radius: 3rem;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-  font-size: 1.2rem;
-  max-width: 500px;
-  text-align: center;
+.cloud-wrapper {
   position: relative;
-  animation: floatIn 0.6s ease forwards;
+  display: inline-block;
+  margin-top: 2rem;
+  animation: float 4s ease-in-out infinite;
 }
 
-/* Optional cloud puff shapes */
-.cloud-output::before,
-.cloud-output::after {
-  content: '';
+/* Left larger puff */
+.puff-left {
   position: absolute;
-  background: #ffffffcc;
+  z-index: 1;
+  background: #ffffff; /* same as pill */
+  border-radius: 80%;
+  width: 60%;  /* smaller than full pill width */
+  height: 150px;
+  top: -40px;
+  left: 15%;   /* leave margin so puff ends before pill ends */
+}
+
+/* Right smaller puff */
+.puff-right {
+  position: absolute;
+  z-index: 1;
+  background: #ffffff; /* same as pill */
   border-radius: 50%;
-}
-
-.cloud-output::before {
-  width: 60px;
-  height: 60px;
+  width: 35%;  /* smaller puff */
+  height: 70px;
   top: -30px;
-  left: 20px;
+  right: 15%;  /* leave margin on the other side */
 }
 
-.cloud-output::after {
-  width: 40px;
-  height: 40px;
-  top: -20px;
-  right: 30px;
+/* Pill-shaped text container */
+.cloud-text {
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+  border-radius: 9999px; /* pill shape */
+  padding: 1.5rem 3rem;
+  min-width: 250px;
+  max-width: 600px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #3b6d3b;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Animation */
-@keyframes floatIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px) scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }

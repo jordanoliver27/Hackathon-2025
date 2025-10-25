@@ -78,17 +78,23 @@ function App() {
       
       {/* Cloud Output */}
       {showCloud && (
+        <div className="cloud-wrapper">
+            <div className="puff puff-left" style={{
+            backgroundColor: bgColors[colorTag] || bgColors.null}}></div>
+            <div className="puff puff-right" style={{
+            backgroundColor: bgColors[colorTag] || bgColors.null}}></div>
+
+        
         <div
-          className="cloud-output"
+          className="cloud-text"
           style={{
             backgroundColor: bgColors[colorTag] || bgColors.null, 
             color: '#0b0b0b',
-            padding: '12px',
-            borderRadius: '10px',
-            maxWidth: '600px'
           }}
         >
           {output}
+          </div>
+          
         </div>
       )}
     </div>
