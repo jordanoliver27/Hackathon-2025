@@ -81,11 +81,11 @@ function App() {
           
         </div>
       )}
-      
+
       {/* Input */}
       <textarea
         className="input-box"
-        placeholder="Type your negative thought here..."
+        placeholder="Type your thought here..."
         value={thought}
         onChange={(e) => {
           setThought(e.target.value);   
