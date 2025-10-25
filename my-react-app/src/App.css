@@ -14,7 +14,12 @@ body, .container {
   line-height: 1.6;
   letter-spacing: 0.2px;
   -webkit-font-smoothing:antialiased;
-  padding-top:3.6rem;
+  /* padding-top:3.6rem; */
+   transition: padding-top 0.4s ease; 
+}
+.container.after-load {
+  padding-top: 5.0rem; 
+   /* transition: padding-top 3.4rem ease;  */
 }
 
 /* Headings - slightly heavier serif for warmth */

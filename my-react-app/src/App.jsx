@@ -65,7 +65,8 @@ function App() {
   return (
 
    <>
-    <div className="container">
+    {/* <div className="container"> */}
+    <div className={`container ${output && !loading ? 'after-load' : ''}`}>
       {/* Header */}
       <h1 className="title">RephraseIt</h1>
       <h2 className="subtitle">Turn harsh thoughts into gentle perspectives</h2>
