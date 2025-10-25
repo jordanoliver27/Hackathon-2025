@@ -60,22 +60,7 @@ function App() {
       <h1 className="title">RephraseIt</h1>
       <h2 className="subtitle">Turn harsh thoughts into gentle perspectives</h2>
 
-      {/* Input */}
-      <textarea
-        className="input-box"
-        placeholder="Type your negative thought here..."
-        value={thought}
-        onChange={(e) => {
-          setThought(e.target.value);   
-        }}
-      ></textarea>
-
-      {/* Button */}
-      <button className="rephrase-btn" onClick={handleRephrase}>
-        Rephrase
-      </button>
-      
-      {/* Cloud Output */}
+{/* Cloud Output */}
       {showCloud && (
         <div className="cloud-wrapper">
             <div className="puff puff-left" style={{
@@ -96,6 +81,23 @@ function App() {
           
         </div>
       )}
+      
+      {/* Input */}
+      <textarea
+        className="input-box"
+        placeholder="Type your negative thought here..."
+        value={thought}
+        onChange={(e) => {
+          setThought(e.target.value);   
+        }}
+      ></textarea>
+
+      {/* Button */}
+      <button className="rephrase-btn" onClick={handleRephrase}>
+        Rephrase
+      </button>
+      
+    
     </div>
   );
 }
