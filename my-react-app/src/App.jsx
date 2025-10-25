@@ -63,11 +63,6 @@ function App() {
 {/* Cloud Output */}
       {showCloud && (
         <div className="cloud-wrapper">
-            <div className="puff puff-left" style={{
-            backgroundColor: bgColors[colorTag] || bgColors.null}}></div>
-            <div className="puff puff-right" style={{
-            backgroundColor: bgColors[colorTag] || bgColors.null}}></div>
-
         
         <div
           className="cloud-text"

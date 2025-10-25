@@ -94,7 +94,7 @@ body, .container {
 .subtitle {
   font-size: 1.5rem;
   color: #7a5c58;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 /* Textarea */
@@ -134,34 +134,7 @@ body, .container {
 .cloud-wrapper {
   position: relative;
   display: inline-block;
-  margin-top: 2rem;
   animation: float 4s ease-in-out infinite;
-}
-
-/* Left larger puff */
-.puff-left {
-  position: absolute;
-  z-index: 1;
-  background: #ffffff; /* same as pill */
-  border-radius: 80%;
-  width: 60%;  /* smaller than full pill width */
-  height: 130px;
-  top: -60px;
-  left: 15%;   /* leave margin so puff ends before pill ends */
-  margin-top: 10px;
-  margin-bottom:10px;
-}
-
-/* Right smaller puff */
-.puff-right {
-  position: absolute;
-  z-index: 1;
-  background: #ffffff; /* same as pill */
-  border-radius: 50%;
-  width: 35%;  /* smaller puff */
-  height: 70px;
-  top: -30px;
-  right: 15%;  /* leave margin on the other side */
 }
 
 /* Pill-shaped text container */
