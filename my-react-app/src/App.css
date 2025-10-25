@@ -14,6 +14,7 @@ body, .container {
   line-height: 1.6;
   letter-spacing: 0.2px;
   -webkit-font-smoothing:antialiased;
+  padding-top:3.6rem;
 }
 
 /* Headings - slightly heavier serif for warmth */
