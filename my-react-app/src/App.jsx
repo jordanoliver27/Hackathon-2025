@@ -8,9 +8,14 @@ function App() {
   const [output, setOutput] = useState("");
   const [showCloud, setShowCloud] = useState(false);
   const [colorTag, setColorTag] = useState(null);
+  const [loading, setLoading] = useState(false); // ADDED
 
   const handleRephrase = async () => {
     if (!thought) return;
+
+    // start breathing loader
+    setLoading(true);
+    setShowCloud(true);
 
     try {
       const response = await fetch('http://localhost:3000/api/rephrase', {
@@ -25,7 +30,6 @@ function App() {
 
       const data = await response.json();
 
-      
       const match = (data.rephrased || "").match(/^\s*(?:\[(RED|ORANGE|GREEN)\]|(RED|ORANGE|GREEN))\s*(.*)$/i);
       const color = (match && (match[1] || match[2])) ? (match[1] || match[2]).toUpperCase() : null;
       if (match) {
@@ -35,6 +39,8 @@ function App() {
         setColorTag(null);
         setOutput(data.rephrased || "No rephrase returned.");
       }
+      // stop breathing and show response
+      setLoading(false);
       setShowCloud(true);
       setThought("");
 
@@ -42,6 +48,7 @@ function App() {
       console.error('Error calling server:', error);
       setColorTag(null);
       setOutput('Something went wrong. Please try again.');
+      setLoading(false);
       setShowCloud(true);
     }
   };
@@ -63,17 +70,21 @@ function App() {
 {/* Cloud Output */}
       {showCloud && (
         <div className="cloud-wrapper">
-        
-        <div
-          className="cloud-text"
-          style={{
-            backgroundColor: bgColors[colorTag] || bgColors.null, 
-            color: '#0b0b0b',
-          }}
-        >
-          {output}
-          </div>
-          
+          {loading ? (
+            // Show breathing circle while loading
+            <div className="breathing-person" aria-label="Loading..." />
+          ) : (
+            // Show cloud response when done loading
+            <div
+              className="cloud-text"
+              style={{
+                backgroundColor: bgColors[colorTag] || bgColors.null,
+                color: '#0b0b0b',
+              }}
+            >
+              {output}
+            </div>
+          )}
         </div>
       )}
 

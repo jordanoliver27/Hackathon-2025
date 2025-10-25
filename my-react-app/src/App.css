@@ -50,14 +50,6 @@ body, .container {
   letter-spacing: 0.4px;
 }
 
-/* Cloud text - slightly larger and relaxed */
-.cloud-text {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: #2f4f3f; /* richer, calming text color */
-  padding: 1.4rem 2.4rem;
-}
-
 /* Small responsive tweaks */
 @media (max-width:540px){
   .title{ font-size: 2.4rem; }
@@ -137,31 +129,61 @@ body, .container {
   animation: float 4s ease-in-out infinite;
 }
 
+
+
 /* Pill-shaped text container */
 .cloud-text {
   position: relative;
   z-index: 2;
   background: #ffffff;
   border-radius: 9999px; /* pill shape */
-  padding: 1.5rem 3rem;
+  /* padding: 1.5rem 3rem; */
+  /* padding: 1.4rem 2.4rem; */
+  padding: calc(1.5rem + 4px) calc(3rem + 4px);
   min-width: 250px;
   max-width: 600px;
+  width: min(90vw, 600px);
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: #3b6d3b;
+  /* color: #2f4f3f; */
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 20px;
 
-  /* CHANGED: relaxing response font */
+
   font-family: "Merriweather", "Quicksand", Georgia, serif;
   font-weight: 400;
   line-height: 1.75;
   letter-spacing: 0.3px;
+
+  
+  
 }
 
 /* Floating animation */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
+}
+
+.breathing-person {
+  width: 80px;  /* smaller circle */
+  height: 80px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #fcd5b5, #f29763); /* matches your warm theme */
+  box-shadow: 0 0 30px rgba(242, 151, 99, 0.3); /* matches button color */
+  animation: inhaleExhale 4s ease-in-out infinite; /* slightly faster for better UX */
+}
+
+@keyframes inhaleExhale {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.15); /* smaller scale change */
+    opacity: 1;
+  }
 }
