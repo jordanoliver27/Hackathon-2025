@@ -1,5 +1,8 @@
 import { useState } from "react";
 import "./Grounding.css";
+import clickSoundFile from "/Sounds/click.wav";
+import clickSoundFile1 from "/Sounds/click1.wav";
+
 
 const steps = [
   { label: "See", count: 5 },
@@ -16,7 +19,11 @@ export default function Grounding() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!inputValue.trim()) return;
+     const clickSound = new Audio(clickSoundFile1);
+
+     clickSound.play();
 
     // Add input to current step
     const updatedInputs = [...inputs];
@@ -35,6 +42,9 @@ export default function Grounding() {
   };
 
   const handleRestart = () => {
+     const clickSound = new Audio(clickSoundFile);
+
+     clickSound.play();
     setCurrentStep(0);
     setInputs(Array(steps.length).fill([]));
     setInputValue("");
