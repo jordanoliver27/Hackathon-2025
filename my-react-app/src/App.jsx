@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import "./App.css";
 import { Link } from "react-router-dom";
+import clickSoundFile from "/Sounds/click.wav";
 
 function App() {
   const [thought, setThought] = useState("");
@@ -10,13 +11,14 @@ function App() {
   const [showCloud, setShowCloud] = useState(false);
   const [colorTag, setColorTag] = useState(null);
   const [loading, setLoading] = useState(false); // ADDED
+  const clickSound = new Audio(clickSoundFile);
   // const [playing, setPlaying] = useState(false);
   // const audioRef = useRef(null);
 
-//  useEffect(() => {
-//     audioRef.current = new Audio("/Sounds/ambient.mp3");
-//     audioRef.current.loop = true;
-//   }, []);
+  //  useEffect(() => {
+  //     audioRef.current = new Audio("/Sounds/ambient.mp3");
+  //     audioRef.current.loop = true;
+  //   }, []);
 
   // const toggleSound = () => {
   //   if (!audioRef.current) return;
@@ -31,7 +33,7 @@ function App() {
 
   const handleRephrase = async () => {
     if (!thought) return;
-
+    clickSound.play();
     // start breathing loader
     setLoading(true);
     setShowCloud(true);
@@ -91,7 +93,7 @@ function App() {
         {/* Header */}
         <h1 className="title">RephraseIt</h1>
         <h2 className="subtitle">Turn harsh thoughts into gentle perspectives</h2>
-      
+
 
         {/* Cloud Output */}
         {showCloud && (
@@ -143,7 +145,7 @@ function App() {
 
 
       </div>
-      
+
     </>
   );
 }
