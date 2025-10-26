@@ -8,7 +8,7 @@
   font-family: sans-serif;
   text-align: center;
   padding: 2rem;
-   font-family: var(--font-serif);
+  font-family: var(--font-serif);
   color: var(--heading-color);
   letter-spacing: 0.6px;
   overflow: hidden;
@@ -17,7 +17,7 @@
 .breathing-page h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .breathing-page .circle-container {
@@ -32,12 +32,12 @@
 .breathing-page .circle {
   width: 150px;
   height: 150px;
-  background: radial-gradient(circle at center, #fcd5b5, #f29763); /* matches your warm theme */
-  box-shadow: 0 0 30px rgba(242, 151, 99, 0.3); 
+  background: radial-gradient(circle at center, #fcd5b5, #f29763);
+  box-shadow: 0 0 30px rgba(242, 151, 99, 0.3);
   border-radius: 50%;
   transition: transform 1s ease-in-out;
 }
 
-.breathing-page .counter{
-    margin-top: 2rem;
+.breathing-page .counter {
+  margin-top: 2rem;
 }

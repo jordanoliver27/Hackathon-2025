@@ -33,12 +33,11 @@ export default function Breathing() {
 
   const current = steps[step];
 
-  // Circle scaling behavior
   let scale = 1;
   if (current.action === "Inhale") {
-    scale = 1.5 * (0.1 + (timer + 1) / current.duration); // grows from small → large
+    scale = 1.5 * (0.1 + (timer + 1) / current.duration);
   } else if (current.action === "Hold") {
-    scale = 1.5 * (0.1 + 1); // stays full
+    scale = 1.5 * (0.1 + 1); 
   } else if (current.action === "Exhale") {
     scale = 1.5 * (0.1 + 1 - (timer + 1) / current.duration); // shrinks
   }

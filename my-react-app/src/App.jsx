@@ -1,6 +1,4 @@
 import { useState, useRef, useEffect } from 'react';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import "./App.css";
 import { Link } from "react-router-dom";
 import clickSoundFile from "/Sounds/click.wav";
@@ -11,32 +9,13 @@ function App() {
   const [output, setOutput] = useState("");
   const [showCloud, setShowCloud] = useState(false);
   const [colorTag, setColorTag] = useState(null);
-  const [loading, setLoading] = useState(false); // ADDED
+  const [loading, setLoading] = useState(false);
   const clickSound = new Audio(clickSoundFile);
   const clickSound1 = new Audio(clickSoundFile1);
-  // const [playing, setPlaying] = useState(false);
-  // const audioRef = useRef(null);
-
-  //  useEffect(() => {
-  //     audioRef.current = new Audio("/Sounds/ambient.mp3");
-  //     audioRef.current.loop = true;
-  //   }, []);
-
-  // const toggleSound = () => {
-  //   if (!audioRef.current) return;
-
-  //   if (playing) {
-  //     audioRef.current.pause();
-  //   } else {
-  //     audioRef.current.play().catch(err => console.log("Autoplay prevented:", err));
-  //   }
-  //   setPlaying(!playing);
-  // };
 
   const handleRephrase = async () => {
     if (!thought) return;
     clickSound1.play();
-    // start breathing loader
     setLoading(true);
     setShowCloud(true);
 
@@ -57,15 +36,12 @@ function App() {
       const color = (match && (match[1] || match[2])) ? (match[1] || match[2]).toUpperCase() : null;
       if (match) {
         setColorTag(color);
-        // setOutput(match[3] || "");
         setOutput((match[3] || "").trim().replace(/^:\s*/, ""));
       } else {
         setColorTag(null);
-        // setOutput(data.rephrased || "No rephrase returned.");
         setOutput((data.rephrased || "No rephrase returned.").trim().replace(/^:\s*/, ""));
 
       }
-      // stop breathing and show response
       setLoading(false);
       setShowCloud(true);
       setThought("");
@@ -78,7 +54,7 @@ function App() {
       setLoading(false);
       setShowCloud(true);
     }
-    
+
   };
 
   const bgColors = {
@@ -92,18 +68,14 @@ function App() {
   return (
 
     <>
-      {/* <div className="container"> */}
       <div className={`container ${output && !loading ? 'after-load' : ''}`}>
-        {/* Header */}
         <h1 className="title">RephraseIt</h1>
         <h2 className="subtitle">Turn harsh thoughts into gentle perspectives</h2>
 
 
-        {/* Cloud Output */}
         {showCloud && (
           <div className="cloud-wrapper" key={output + loading}>
             {loading ? (
-              // Enhanced loading state with message
               <div className="loading-container">
                 <div className="breathing-person" aria-label="Loading..." />
                 <div className="breathing-text">
@@ -112,7 +84,6 @@ function App() {
                 </div>
               </div>
             ) : (
-              // Show cloud response when done loading
               <div
                 className="cloud-text"
                 style={{
@@ -134,8 +105,8 @@ function App() {
               onChange={(e) => setThought(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter" && !e.shiftKey) {
-                  e.preventDefault(); // prevent newline
-                  handleRephrase();   // trigger your submit function
+                  e.preventDefault();
+                  handleRephrase();   // trigger submit function
                 }
               }}
             ></textarea>

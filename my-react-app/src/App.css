@@ -1,28 +1,29 @@
-:root{
+:root {
   --font-sans: "Quicksand", "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   --font-serif: "Merriweather", Georgia, "Times New Roman", serif;
   --muted: #6b7c80;
   --heading-color: #4b6b74;
 }
 
-/* reset + smoothing */
-*{ -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-body, .container {
+body,
+.container {
   font-family: var(--font-sans);
   color: var(--muted);
   line-height: 1.6;
   letter-spacing: 0.2px;
-  -webkit-font-smoothing:antialiased;
-  /* padding-top:3.6rem; */
-   transition: padding-top 0.4s ease; 
-}
-.container.after-load {
-  padding-top: 5.0rem; 
-   /* transition: padding-top 3.4rem ease;  */
+  -webkit-font-smoothing: antialiased;
+  transition: padding-top 0.4s ease;
 }
 
-/* Headings - slightly heavier serif for warmth */
+.container.after-load {
+  padding-top: 5.0rem;
+}
+
 .title {
   font-family: var(--font-serif);
   color: var(--heading-color);
@@ -42,7 +43,6 @@ body, .container {
   margin-bottom: 1.75rem;
 }
 
-/* Inputs and button - rounded, softer text */
 .input-box {
   font-family: var(--font-sans);
   font-weight: 400;
@@ -56,19 +56,27 @@ body, .container {
   letter-spacing: 0.4px;
 }
 
-/* Small responsive tweaks */
-@media (max-width:540px){
-  .title{ font-size: 2.4rem; }
-  .input-box{ height: 120px; }
-  .cloud-text{ font-size: 1rem; padding: 1rem 1.2rem; }
+@media (max-width:540px) {
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .input-box {
+    height: 120px;
+  }
+
+  .cloud-text {
+    font-size: 1rem;
+    padding: 1rem 1.2rem;
+  }
 }
 
-/* Container */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* ensures padding doesn't add to width/height */
+  box-sizing: border-box;
 }
+
 .container {
   display: flex;
   flex-direction: column;
@@ -80,13 +88,12 @@ body, .container {
   position: relative;
 }
 
-/* Header */
 .title {
   font-size: 4rem;
   font-weight: 800;
   color: #c97b63;
   margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .subtitle {
@@ -95,8 +102,6 @@ body, .container {
   margin-bottom: 1rem;
 }
 
-
-/* Textarea */
 .input-box {
   width: 90%;
   max-width: 600px;
@@ -106,22 +111,15 @@ body, .container {
   border-radius: 2rem;
   border: 2px solid #f7b28b;
   outline: none;
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
   resize: none;
   margin-bottom: 1.5rem;
   scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
   scrollbar-width: thin;
-
-  overflow: auto; 
+  overflow: auto;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
-  /* overflow-y: overlay; */
-  /* background-clip: padding-box; */
-  
 }
 
-
-
-/* Button */
 .rephrase-btn {
   background-color: #f29763;
   color: white;
@@ -129,7 +127,7 @@ body, .container {
   padding: 0.8rem 2.5rem;
   border-radius: 2rem;
   border: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: all 0.3s ease;
   margin-bottom: 20px;
@@ -146,14 +144,10 @@ body, .container {
   animation: float 4s ease-in-out infinite;
 }
 
-
-
-/* Pill-shaped text container */
 .cloud-text {
   position: relative;
   z-index: 2;
   background: #ffffff;
-  /* border-radius: 9999px;  */
   border-radius: 1.5rem;
   padding: calc(1.5rem + 4px) calc(3rem + 4px);
   min-width: 250px;
@@ -171,41 +165,47 @@ body, .container {
   line-height: 1.75;
   letter-spacing: 0.3px;
 
-    /* shadows for depth */
-  box-shadow: 
-    0 4px 6px rgba(0, 0, 0, 0.1), /* subtle shadow */
-    0 8px 20px rgba(0, 0, 0, 0.08), /* deeper shadow */
-    inset 0 2px 4px rgba(255, 255, 255, 0.3); /* inner highlight */
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
 }
 
-/* Floating animation */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 .breathing-person {
-  width: 80px;  /* smaller circle */
+  width: 80px;
   height: 80px;
-  /* margin-bottom: 10px; */
   border-radius: 50%;
-  background: radial-gradient(circle at center, #fcd5b5, #f29763); /* matches your warm theme */
-  box-shadow: 0 0 30px rgba(242, 151, 99, 0.3); /* matches button color */
-  animation: inhaleExhale 4s ease-in-out infinite; /* slightly faster for better UX */
+  background: radial-gradient(circle at center, #fcd5b5, #f29763);
+  box-shadow: 0 0 30px rgba(242, 151, 99, 0.3);
+  animation: inhaleExhale 4s ease-in-out infinite;
 }
 
 @keyframes inhaleExhale {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.85;
   }
+
   50% {
-    transform: scale(1.15); /* smaller scale change */
+    transform: scale(1.15);
     opacity: 1;
   }
 }
 
-/* Loading container with message */
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -229,21 +229,35 @@ body, .container {
 }
 
 @keyframes fadeInOut {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.9; }
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
 }
 
 @keyframes ellipsis {
-  0% { content: "."; }
-  33% { content: ".."; }
-  66% { content: "..."; }
+  0% {
+    content: ".";
+  }
+
+  33% {
+    content: "..";
+  }
+
+  66% {
+    content: "...";
+  }
 }
+
 .hidden {
   display: none;
 }
 
-
-/* Fade and float in for the cloud */
 .cloud-text {
   opacity: 0;
   transform: translateY(10px);
@@ -255,19 +269,19 @@ body, .container {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Input + button fade in */
 .input-box,
 .rephrase-btn {
   opacity: 0;
   transform: translateY(10px);
   animation: fadeInInput 0.8s forwards ease-in-out;
-  animation-delay: 0.2s; /* slight delay for natural effect */
+  animation-delay: 0.2s;
 }
 
 @keyframes fadeInInput {
@@ -275,52 +289,33 @@ body, .container {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* 
 .sound-btn {
-  background-color: #a8e6cf;
-  color: #0b0b0b;
-  padding: 0.6rem 1.5rem;
-  border-radius: 2rem;
-  border: none;
-  margin-bottom: 1.5rem;
-  cursor: pointer;
-  font-weight: 600;
-  transition: transform 0.2s ease, background-color 0.3s ease;
-}
-
-.sound-btn:hover {
-  transform: scale(1.05);
-  background-color: #91d9b5;
-} */
-
-.sound-btn {
-  background-color: rgba(255, 255, 255, 0.3); 
-  backdrop-filter: blur(8px);                  
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
   border: none;
   border-radius: 2rem;
   padding: 0.6rem 1.5rem;
   font-family: 'Quicksand', sans-serif;
   font-weight: 500;
   margin-bottom: 1.5rem;
-  /* color: #3b6d3b;                       */
-  /* background-color: #f2976358;         */
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   transition: all 0.3s ease;
-  position: fixed;     
-  top: 5rem;             
-  right: 1rem;          
+  position: fixed;
+  top: 5rem;
+  right: 1rem;
 }
+
 .sound-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
-  /* background-color: rgba(255, 255, 255, 0.45); */
-  background-color: #f2976358;        
+  background-color: #f2976358;
 }

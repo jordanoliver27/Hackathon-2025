@@ -26,18 +26,16 @@ export default function Grounding() {
 
     clickSound.play();
 
-    // Add input to current step
     const updatedInputs = [...inputs];
     updatedInputs[currentStep] = [...updatedInputs[currentStep], inputValue];
     setInputs(updatedInputs);
     setInputValue("");
 
-    // Move to next step if reached required count
     if (updatedInputs[currentStep].length + 1 > steps[currentStep].count) {
       if (currentStep + 1 < steps.length) {
         setCurrentStep(currentStep + 1);
       } else {
-        setCurrentStep(steps.length); // mark exercise as finished
+        setCurrentStep(steps.length);
       }
     }
   };
@@ -51,7 +49,6 @@ export default function Grounding() {
     setInputValue("");
   };
 
-  // **If all steps done, show completion screen with summary**
   if (currentStep >= steps.length) {
     return (
       <div className="grounding-container">
