@@ -3,42 +3,44 @@ import { Link } from "react-router-dom";
 import "./Breathing.css";
 
 export default function Breathing() {
+  const steps = [
+    { action: "Inhale", duration: 4 },
+    { action: "Hold", duration: 7 },
+    { action: "Exhale", duration: 8 },
+  ];
+
   const [step, setStep] = useState(0);
   const [timer, setTimer] = useState(0);
 
-  const steps = [
-    { action: "Inhale", duration: 4 },
-    { action: "Exhale", duration: 8 },
-    { action: "Hold", duration: 7 },
-
-  ];
-
   useEffect(() => {
-    let interval;
-    if (step < steps.length) {
-      interval = setInterval(() => {
-        setTimer((prev) => {
-          if (prev + 1 >= steps[step].duration) {
-            setStep((s) => (s + 1) % steps.length); // loop continuously
-            return 0;
-          }
-          return prev + 1;
-        });
-      }, 1000);
-    }
+    let stepIndex = 0;
+    let timerValue = 0;
+
+    const interval = setInterval(() => {
+      timerValue++;
+
+      if (timerValue >= steps[stepIndex].duration) {
+        stepIndex = (stepIndex + 1) % steps.length;
+        timerValue = 0;
+      }
+
+      setStep(stepIndex);
+      setTimer(timerValue);
+    }, 1000);
+
     return () => clearInterval(interval);
-  }, [step]);
+  }, []);
 
   const current = steps[step];
 
-  // Circle scale based on phase
+  // Circle scaling behavior
   let scale = 1;
   if (current.action === "Inhale") {
-    scale = 1.5*(0.1+ (timer + 1) / current.duration); // grows from 0 → 1
-  } else if (current.action === "Exhale") {
-    scale = 1.5*(0.1+ 1 - (timer + 1) / current.duration); // shrinks from 1 → 0
+    scale = 1.5 * (0.1 + (timer + 1) / current.duration); // grows from small → large
   } else if (current.action === "Hold") {
-    scale = 1.5*(0.1+1); // stays full
+    scale = 1.5 * (0.1 + 1); // stays full
+  } else if (current.action === "Exhale") {
+    scale = 1.5 * (0.1 + 1 - (timer + 1) / current.duration); // shrinks
   }
 
   return (
@@ -46,10 +48,15 @@ export default function Breathing() {
       <h2>{current.action}</h2>
 
       <div className="circle-container">
-        <div className="circle" style={{ transform: `scale(${scale})` }}></div>
+        <div
+          className="circle"
+          style={{ transform: `scale(${scale})` }}
+        ></div>
       </div>
 
-      <p className="counter">{timer + 1} / {current.duration} seconds</p>
+      <p className="counter">
+        {timer + 1} / {current.duration} seconds
+      </p>
 
     </div>
   );
