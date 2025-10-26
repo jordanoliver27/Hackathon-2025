@@ -79,8 +79,8 @@ app.post('/api/rephrase', async (req, res) => {
 // 2. CATCH-ALL ROUTE (Must be the last route handler):
 // This uses the simplest wildcard '*' to match anything that wasn't a static file
 // or the /api/rephrase route, resolving the client-side routing issue.
-app.get('*', (req, res) => {
-  res.sendFile(path.join(BUILD_PATH, 'index.html'));
+app.get(/^(?!\/api).*/, (req, res) => {
+    res.sendFile(path.join(BUILD_PATH, 'index.html'));
 });
 
 
