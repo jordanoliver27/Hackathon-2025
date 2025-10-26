@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import "./App.css";
 import { Link } from "react-router-dom";
 import clickSoundFile from "/Sounds/click.wav";
+import clickSoundFile1 from "/Sounds/click1.wav";
 
 function App() {
   const [thought, setThought] = useState("");
@@ -12,6 +13,7 @@ function App() {
   const [colorTag, setColorTag] = useState(null);
   const [loading, setLoading] = useState(false); // ADDED
   const clickSound = new Audio(clickSoundFile);
+  const clickSound1 = new Audio(clickSoundFile1);
   // const [playing, setPlaying] = useState(false);
   // const audioRef = useRef(null);
 
@@ -33,7 +35,7 @@ function App() {
 
   const handleRephrase = async () => {
     if (!thought) return;
-    clickSound.play();
+    clickSound1.play();
     // start breathing loader
     setLoading(true);
     setShowCloud(true);
@@ -67,6 +69,7 @@ function App() {
       setLoading(false);
       setShowCloud(true);
       setThought("");
+      clickSound.play();
 
     } catch (error) {
       console.error('Error calling server:', error);
@@ -75,6 +78,7 @@ function App() {
       setLoading(false);
       setShowCloud(true);
     }
+    
   };
 
   const bgColors = {
