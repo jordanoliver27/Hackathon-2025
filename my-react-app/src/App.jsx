@@ -134,9 +134,9 @@ function App() {
               }}
             ></textarea>
 
-            {/* <button className="rephrase-btn" onClick={handleRephrase}>
+            <button className="rephrase-btn" onClick={handleRephrase}>
               Rephrase
-            </button> */}
+            </button>
           </>
         )}
 
