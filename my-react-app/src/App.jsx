@@ -37,7 +37,7 @@ function App() {
     setShowCloud(true);
 
     try {
-      const response = await fetch('http://localhost:3000/api/rephrase', {
+      const response = await fetch('https://rephraseit-m3rz.onrender.com/api/rephrase', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: thought }),
