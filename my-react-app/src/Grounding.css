@@ -135,3 +135,27 @@
   font-weight: 400;
   font-size: 1.05rem;
 }
+
+.grounding-container h2 {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 500;
+  background: linear-gradient(270deg, #457b9d, #74c69d, #457b9d);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: waveText 6s ease-in-out infinite;
+}
+
+/* 🌊 Gentle gradient wave animation */
+@keyframes waveText {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

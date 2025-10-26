@@ -21,9 +21,10 @@ export default function Grounding() {
     e.preventDefault();
 
     if (!inputValue.trim()) return;
-     const clickSound = new Audio(clickSoundFile1);
+    const clickSound = new Audio(clickSoundFile1);
+    clickSound.volume = 0.25;
 
-     clickSound.play();
+    clickSound.play();
 
     // Add input to current step
     const updatedInputs = [...inputs];
@@ -42,9 +43,9 @@ export default function Grounding() {
   };
 
   const handleRestart = () => {
-     const clickSound = new Audio(clickSoundFile);
-
-     clickSound.play();
+    const clickSound = new Audio(clickSoundFile);
+    clickSound.volume = 0.25;
+    clickSound.play();
     setCurrentStep(0);
     setInputs(Array(steps.length).fill([]));
     setInputValue("");
@@ -56,20 +57,20 @@ export default function Grounding() {
       <div className="grounding-container">
         <h1>Grounding Exercise</h1>
         <h2>All done — great job!</h2>
-        <button style={{marginTop: "1rem"}} onClick={handleRestart}>Do it again</button>
+        <button style={{ marginTop: "1rem" }} onClick={handleRestart}>Do it again</button>
 
         <div className="summary">
-  {steps.map((step, idx) => (
-    <div key={idx} className="summary-step">
-      <h3>{step.label}</h3>
-      <div className="summary-items">
-        {inputs[idx].map((item, i) => (
-          <span key={i} className="summary-item">{item}</span>
-        ))}
-      </div>
-    </div>
-  ))}
-</div>
+          {steps.map((step, idx) => (
+            <div key={idx} className="summary-step">
+              <h3>{step.label}</h3>
+              <div className="summary-items">
+                {inputs[idx].map((item, i) => (
+                  <span key={i} className="summary-item">{item}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
 
       </div>
     );
