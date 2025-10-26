@@ -4,17 +4,20 @@ import './index.css'
 import App from './App.jsx'
 import Breathing from "./Breathing";
 import NavBar from "./NavBar";
+import Layout from "./Layout.jsx";
 import Grounding from "./Grounding";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/breathing" element={<Breathing />} />
-        <Route path="/grounding" element={<Grounding />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<App />} />
+          <Route path="/breathing" element={<Breathing />} />
+          <Route path="/grounding" element={<Grounding />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </StrictMode>,
